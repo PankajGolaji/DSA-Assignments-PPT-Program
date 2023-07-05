@@ -1,0 +1,284 @@
+                                                                                Assignment 2(Core Java)
+                                                                               =========================
+
+Q1. What are the Conditional Operators in Java?
+
+Ans:- => In Java, conditional operators, also known as ternary operators, are operators that allow you to make decisions or evaluate conditions based on a boolean expression.
+         The conditional operator in Java is represented by the ? : syntax. It takes three operands and has the following form:
+
+                                          eg:: 
+                                              booleanExpression ? valueIfTrue : valueIfFalse
+
+     => Conditional operators can be nested, allowing for more complex decision-making. However, it's important to use them judiciously to maintain code readability and avoid 
+        excessive complexity. In cases where more complex conditions or multiple branches are required, it is often better to use if-else statements or switch statements for better 
+        clarity and maintainability.
+===========================================================================================================================================================================================
+
+Q2. What are the types of operators based on the number of operands?
+
+Ans:- => Unary Operators:- Unary operators work with a single operand. They perform operations on a single expression or variable.
+
+           -> Unary Plus (+):-  Used to indicate a positive value. For example, +5.
+           -> Unary Minus (-):- Used to indicate a negative value. For example, -5.
+           -> Increment (++) and Decrement (--):- Used to increase or decrease the value of a variable by one. For example, x++, --y.
+           -> Logical Complement (!):- Used to negate a boolean value. For example, !isTrue.
+
+     => Binary Operators:- Binary operators work with two operands. They perform operations between two expressions or variables.
+
+          -> Arithmetic Operators:- Addition (+), Subtraction (-), Multiplication (*), Division (/), Remainder (%), etc.
+          -> Relational Operators:- Equal to (==), Not equal to (!=), Greater than (>), Less than (<), Greater than or equal to (>=), Less than or equal to (<=), etc.
+          -> Logical Operators:-    Logical AND (&&), Logical OR (||), Logical NOT (!), etc.
+          -> Assignment Operators:- Assigns a value to a variable. For example, =, +=, -=, *=, /=, etc.
+          -> Bitwise Operators:-    Perform bitwise operations. For example, Bitwise AND (&), Bitwise OR (|), Bitwise XOR (^), Bitwise Complement (~), Left Shift (<<), Right Shift (>>), etc.
+
+     => Ternary Operator:- The ternary operator, also known as the conditional operator (? :), is the only operator in Java that takes three operands. It provides a compact way to write 
+                           conditional expressions.
+
+          -> Conditional Operator (? :):- Evaluates a boolean expression and returns one of two values based on the result. For example, condition ? valueIfTrue : valueIfFalse.
+============================================================================================================================================================================================
+
+Q3.What is the use of Switch case in Java programming?
+
+Ans:- => The switch statement in Java is used for multi-way branching, allowing you to execute different blocks of code based on the value of a variable or expression. It provides an 
+         alternative to using multiple if-else statements when you need to make decisions based on a single value.
+
+                                  eg::
+                                      switch (expression) {
+                                          case value1:
+                                               // code to be executed if expression matches value1
+                                                    break;
+                                          case value2:
+                                              // code to be executed if expression matches value2
+                                                    break;
+                                             // more cases...
+                                         default:
+                                            // code to be executed if expression doesn't match any case
+                                       }
+      => The default label is optional and is used when none of the case labels match the value of the expression. It provides a fallback option for handling unexpected values.
+============================================================================================================================================================================================
+
+Q4.What are the conditional Statements and use of conditional statements in Java?
+
+Ans:- => Conditional statements in Java allow you to control the flow of your program based on certain conditions. They enable you to execute different blocks of code depending on whether
+         a condition is true or false. There are three main types of conditional statements in Java: if, if-else, and if-else if-else. Here's an overview of each type:
+
+          --> if Statement:- The if statement evaluates a boolean expression and executes a block of code if the condition is true. If the condition is false, the code block is skipped.
+
+                                    eg::
+                                        int num = 10;
+                                                  if (num > 0) {
+                                                     System.out.println("The number is positive.");
+                                                  }
+
+          --> if-else Statement:- The if-else statement provides an alternative block of code to be executed when the condition of the if statement is false. If the
+                                  condition is true, the code inside the if block is executed; otherwise, the code inside the else block is executed.
+
+                                    eg:: 
+                                        int num = -5;
+                                               if (num > 0) {
+                                                  System.out.println("The number is positive.");
+                                                } else {
+                                                       System.out.println("The number is non-positive.");
+                                             }
+
+         --> if-else if-else Statement:- The if-else if-else statement allows you to evaluate multiple conditions and execute different code blocks based on the first
+                                         condition that evaluates to true. The else if blocks provide additional conditions to be checked.
+
+                                              eg:: 
+                                                  int num = 0;
+                                                       if (num > 0) {
+                                                                System.out.println("The number is positive.");
+                                                            } else if (num < 0) {
+                                                                System.out.println("The number is negative.");
+                                                            } else {
+                                                                System.out.println("The number is zero.");
+                                                        }
+
+     => Conditional statements are essential for controlling the flow of execution in Java programs. They allow you to make decisions based on specific conditions, 
+        enabling your code to respond dynamically to different scenarios. These statements provide flexibility and control over how your program behaves, allowing for 
+        branching and decision-making based on various factors.
+===========================================================================================================================================================================
+
+Q5.What is the syntax of if else statement?
+
+Ans:- => The syntax of the if-else statement in Java is as follows:
+
+                       eg::
+                          if (condition) {
+                                  // Code to be executed if the condition is true
+                              } else {
+                                 // Code to be executed if the condition is false
+                           }
+
+              --> The if keyword is followed by a pair of parentheses ( ) that enclose the condition to be evaluated. The condition must be a boolean expression that 
+                  results in either true or false.
+
+              --> If the condition evaluates to true, the block of code inside the first set of curly braces { } is executed.
+
+              --> If the condition evaluates to false, the block of code inside the else keyword and the second set of curly braces { } is executed.
+
+              --> The else block is optional. If you omit the else part, only the code block associated with the if statement is executed when the condition is true. If 
+                  the condition is false and there is no else block, the program continues to the next statement after the if-else construct.
+
+                                                 eg::
+                                                     int num = 10;
+                                                        if (num > 0) {
+                                                                   System.out.println("The number is positive.");
+                                                            } else {
+                                                                  System.out.println("The number is non-positive.");
+                                                        }
+===========================================================================================================================================================================
+
+Q6.How do you compare two strings in Java?
+
+Ans:- => In Java, you can compare two strings using the equals() method or the compareTo() method. Here's how each method is used for string comparison:
+
+                  1). Using the equals() method:- The equals() method is used to compare the contents of two strings and checks if they are equal.
+             
+                                                     Syntax:-
+                                                              String str1 = "Hello";
+                                                              String str2 = "World";
+
+                                                            if (str1.equals(str2)) {
+                                                                   // Strings are equal
+                                                            } else {
+                                                                  // Strings are not equal
+                                                            }
+
+                       --> In the example above, the equals() method is called on str1 with str2 passed as the argument. If the strings have the same sequence of  
+                           characters, the condition evaluates to true, and the code block inside the if statement is executed.
+
+                  2). Using the compareTo() method:- The compareTo() method compares two strings lexicographically (based on their Unicode values) and returns an integer 
+                                                     value indicating their relative order.
+
+                                                           Syntax:-
+                                                                    String str1 = "Apple";
+                                                                    String str2 = "Banana";
+
+                                                                    int result = str1.compareTo(str2);
+
+                                                                    if (result == 0) {
+                                                                               // Strings are equal
+                                                                    } else if (result < 0) {
+                                                                              // str1 comes before str2
+                                                                    } else {
+                                                                             // str1 comes after str2
+                                                                    }
+
+                       --> In the example above, the compareTo() method is called on str1 with str2 passed as the argument. The method returns an integer value:
+
+                                     => If the result is 0, it means the strings are equal.
+                                     => If the result is negative, it means str1 comes before str2 in lexicographical order.
+                                     => If the result is positive, it means str1 comes after str2 in lexicographical order.
+
+                      Note:- 
+                             It's important to note that when comparing strings, it is generally recommended to use the equals() method rather than the == operator, 
+                             which compares the object references and not the actual content of the strings.
+===========================================================================================================================================================================
+
+Q7.What is Mutable String in Java Explain with an example
+
+Ans:- => In Java, strings are immutable, which means that their values cannot be changed once they are created. However, there is a mutable counterpart to strings called 
+         StringBuilder. The StringBuilder class allows you to modify the contents of a string-like object without creating a new string every time.
+
+                                          eg:: 
+                                               StringBuilder sb = new StringBuilder("Hello");
+                                                     sb.append(" World");
+                                                     sb.insert(5, " Java");
+                                                     sb.delete(11, 16);
+                                                     System.out.println(sb.toString());
+
+            --> The StringBuilder class provides various methods to manipulate the string-like object. Some commonly used methods include:
+
+                                => append(String str): Appends the given string to the end of the current string.
+                                => insert(int offset, String str): Inserts the given string at the specified position.
+                                => delete(int start, int end): Deletes the characters between the specified start and end indexes.
+                                => replace(int start, int end, String str): Replaces the characters between the start and end indexes with the given string.
+                                => reverse(): Reverses the characters of the string-like object.
+                                => toString(): Converts the StringBuilder object to a String.
+
+                 Note:-
+                       It's important to distinguish between the immutable String class and the mutable StringBuilder class. If you don't require mutable behavior, it is
+                       generally recommended to use the immutable String class for its thread-safety and immutability guarantees.
+===========================================================================================================================================================================
+
+Q8.Write a program to sort a String Alphabetically
+
+Ans:- // Without using sort() method
+       
+         import java.util.*;
+        
+         class sort{
+            public static void main(String[] args)
+              {
+                 String str = "pankaj";
+                 // Converting string into an array for computation
+                 char arr[] = str.toChar.Array();
+                 int temp = 0;
+                 while(i < arr.length){
+                       int j = i + 1;
+                       while(j < arr.length){
+                             if(arr[j] < arr[i]){
+
+                             temp = arr[i]
+                             arr[i] = arr[j];
+                             arr[j] = temp;
+                            }
+                            j = j + 1;
+                          }
+                          i = i + 1;
+                        }
+                        System.out.println(arr);
+                      }
+                   }
+
+     => Output:: aajknp
+===========================================================================================================================================================================
+
+Q9.Write a program to check if the letter 'e' is present in the word 'Umbrella'.
+
+Ans:-     import java.util.*;
+ 
+          public class check{
+               public static void main(String[] args)
+                  {
+                     String word = "Umbrella";
+                     char letter = 'e';
+                  
+                     boolean isPresent = false;
+                     for(int i = 0; i < word.length(); i++){
+                            if(word.charAt(i) == letter){
+                                  isPresent = true;
+                                  break;
+                            }
+                     }
+                     if(isPresent){
+                         System.out.println("The letter " + letter + "is present int the word" + word );
+                     } else{
+                         System.out.println("The letter " + letter + "is not present in the word " + word );
+                    }
+                  }
+               }
+===========================================================================================================================================================================
+
+Q10.Where exactly is the string constant pool located in the memory?
+
+Ans:- => In Java, the string constant pool is a part of the Java Virtual Machine's (JVM) runtime constant pool, which is a specific area of memory allocated during the 
+         execution of a Java program. The exact location of the string constant pool in memory can vary based on the JVM implementation.
+
+      => Generally, the string constant pool is stored in the heap memory, which is the runtime data area used for dynamic memory allocation in Java. The heap is shared
+         among all threads of the Java application and is organized into various regions, including the young generation, the old generation, and the permanent generation
+         (or metaspace in newer versions of Java).
+                      
+      => The string constant pool contains a pool of unique string literals, i.e., the string objects created using string literals in the Java code. It is a way to 
+         optimize memory usage by reusing string objects whenever the same string literal is encountered multiple times.
+
+
+
+
+
+
+
+
+
+

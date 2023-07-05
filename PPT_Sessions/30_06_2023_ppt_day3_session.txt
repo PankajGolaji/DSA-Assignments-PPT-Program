@@ -1,0 +1,448 @@
+Short circuit operator
+=====================
+  &&
+  ||
+
+These operators are exactly same as bitwise operators,but the difference is as follows
+
+&,|
+---
+=> Both the arguments will be evaluated
+=> performance is low
+=>Applicable for both boolean and integral types.
+
+
+&&,||
+=====
+=> Evaluation of second argument is optional
+=> performance is high
+=> Applicable only for boolean type ,but not for integral type.
+
+
+
+eg::
+ int x= 10,y=15;
+ if(++x < 10 && ++y>15) //x=11 
+    x++; 
+ else
+    y++;//y=16
+
+System.out.println(x);//12
+System.out.println(y);//16
+
+
+case1::  || => x = 12,y=16
+case2::   | => x = 12,y=16
+case3::  && => x = 11,y=16
+case4::   & => x = 11,y=17
+
+eg::
+ int x=10;
+ if(++x<10 && ((x/0)<10)
+    System.out.println("hello");
+ else
+    System.out.println("hiee");
+
+output:: hiee
+
+case2: replace && with '&'
+output:: java.lang.ArithmeticException:/ by zero
+
+q>
+Boolean b1 = true;
+boolean b2 = false;
+boolean b3 = true;
+if ((b1 & b2) | (b2 & b3) & b3)
+    System.out.print("alpha ");
+if ((b1 = false) | (b1 & b3) | (b1 | b2))
+    System.out.print("beta ");
+
+What is the result?
+A. beta
+B. alpha
+C. alpha beta
+D. Compilation fails.
+E. No output is produced.
+F. An exception is thrown at runtime.
+
+53.
+1. class Maybe {
+2. public static void main(String[] args) {
+3. 		boolean b1 = true;
+4. 		boolean b2 = false;
+5. 		System.out.print(!false ^ false); //true
+6. 		System.out.print(" " + (!b1 & (b2 = true))); //false & true => false
+7. 		System.out.println(" " + (b2 ^ b1));//true ^ true => false
+8. 	}
+9. }
+Which are true?
+A. Line 5 produces true.
+B. Line 5 produces false.
+C. Line 6 produces true.
+D. Line 6 produces false.
+E. Line 7 produces true.
+F. Line 7 produces false.
+
+Answer :: A,D,F
+
+Q>
+Given.
+class Foozit {
+public static void main(String[] args) {
+		Integer x = 0;
+		Integer y = 0;
+		for(Short z = 0; z < 5; z++)
+			if((++x > 2) || (++y > 2))
+				x++;
+		System.out.println(x + " " + y);
+	} 
+}
+What is the result?
+A. 5 1   
+B. 5 2   
+C. 5 3   
+D. 8 1
+E. 8 2   
+F. 8 3  
+G. 10 2  
+H. 10 3
+
+Answer: E
+
+Given
+3. public class Spock {
+4. public static void main(String[] args) {
+5. 	int mask = 0;
+6. 	int count = 0;
+7. 	if( ((5<7) || (++count < 10)) | mask++ < 10 ) mask = mask + 1;
+8. 	if( (6 > 8) ^ false) mask = mask + 10;
+9. 	if(!(mask > 1) &&  ++count > 1) mask = mask + 100;
+10. 	System.out.println(mask + " " + count);
+11.   }
+12. }
+
+Which two are true about the value of mask and the value of count at line 10?
+(Choose two.)
+A. mask is 0
+B. mask is 1
+C. mask is 2
+D. mask is 10
+E. mask is greater than 10
+F. count is 0
+G. count is greater than 0
+
+Answer:: C,F
+
+Q>
+What will be the result of compiling and executing Test class? 
+public class Test {
+    public static void main(String[] args) {
+        int a = 7;
+        boolean res = a++ == 7 && ++a == 9 || a++ == 9;
+        System.out.println("a = " + a);
+        System.out.println("res = " + res);
+    }
+}
+A. a=10
+   res=true
+B. a=9
+   res=true
+C. a=10
+   res=false
+D. compilation error
+
+Answer: B
+
+Q>
+public class SpecialOps {
+  	public static void main(String[] args) {
+			String s = "";
+			Boolean b1 = true;
+ 			boolean b2 = false;
+ 			if((b2 = false) | (21%5) > 2) s += "x";
+			if(b1 || (b2 == true)) s += "y";
+			if(b2 == true) s += "z";
+	 		System.out.println(s);
+	 }
+ }
+Which are true? (Choose all that apply.)
+A. Compilation fails
+B. x will be included in the output
+C. y will be included in the output
+D. z will be included in the output
+E. An exception is thrown at runtime
+
+Conditional Operator
+====================
+  ?:(Ternary operator)
+
+eg::
+int x = (10>20) ? 30 : 40;
+System.out.println(x);//40
+
+eg::
+ int x = (10>20) ? 30 : (100>20) ? 40 : 50;
+System.out.println(x);//40
+
+eg::
+ int a =10,b=20;
+ byte c1 = (10>20) ? 30 : 40; //40
+ byte c2 = (10<20) ? 30 : 40; //30
+ System.out.println(c1);//40
+ System.out.println(c2);//30
+
+eg::
+ int a =10,b=20;
+ byte c1 = (a>b) ? 30 : 40;//CE
+ byte c2 = (a<b) ? 30 : 40;//CE
+ System.out.println(c1);
+ System.out.println(c2);
+
+Answer: Since value of a and value of b is not know, compiler can't keep true or false associated value in variabel
+        by default those values will be treated as 'int',since 'int' can't be stored in byte it would result in "CompileTimeError".
+
+55.
+Given
+class Hexy {
+	public static void main(String[] args) {
+		Integer i = 42;
+		String s = (i<40)? "life": (i>50) ? "universe" :"everything";
+		System.out.println(s);
+	} 
+}
+What is the result?
+A. null
+B. life
+C. universe
+D. everything
+E. Compilation fails.
+F. An exception is thrown at runtime.
+
+Answer : D
+
+Q>
+For the given code what is the output?
+   int x=100;
+   int a=x++;
+   int b= ++x;
+   int c= x++;
+   int d= (a<b) ? (a<c) ? a: (b<c)? b: c :x;
+   System.out.println(d);
+   
+A. 100
+B. 101
+C. 102
+D. 103
+E. compilation fails
+
+Answer:: A
+
+Control statements
+==================
+ 1. if
+ 2. else
+ 3. switch
+ 4. while
+ 5. dowhile
+ 6. for
+ 7. foreach
+ 9. break
+ 10. continue
+ 11. return
+ 12. exit
+
+Q> 
+Give
+int i=10;
+int j=20;
+int k= (j+=i)/5;
+System.out.println(i+":"+j+":"+k);
+
+A.10:30:6
+B.10:22:22
+C.10:22:20
+D.10:22:6
+
+Answer : A
+
+Q> 
+ int x =10;
+ if(x){
+	System.out.println("hello");
+ }else{
+	System.out.println("hiee");
+}
+A. hello
+B. hiee
+C. CompileTime Error
+D. Some problem by jvm at the execution
+E. None of the above
+
+Answer: C
+
+Q> 
+int x =10;
+if(x=20){
+	System.out.println("hello");
+ }else{
+	System.out.println("hiee");
+}
+A. hello
+B. hiee
+C. CompileTime Error
+D. Some problem by jvm at the execution
+E. None of the above
+
+Answer: C
+
+Q>
+int x =10;
+if(x==20){
+	System.out.println("hello");
+ }else{
+	System.out.println("hiee");
+}
+A. hello
+B. hiee
+C. CompileTime Error
+D. Some problem by jvm at the execution
+E. None of the above
+
+Answer: B
+
+
+Q> 
+boolean b= false;
+if(b=true){
+	System.out.println("hello");
+ }else{
+	System.out.println("hiee");
+}
+A. hello
+B. hiee
+C. CompileTime Error
+D. Some problem by jvm at the execution
+E. None of the above
+Answer: A
+
+Q> 
+boolean b= false;
+if(b==true){
+	System.out.println("hello");
+ }else{
+	System.out.println("hiee");
+}
+A. hello
+B. hiee
+C. CompileTime Error
+D. Some problem by jvm at the execution
+E. None of the above
+
+Answer: B
+
+Q> 
+  if(true)
+	System.out.println("hello");
+
+A. Compile Time Error
+B. hello
+C. Some problem by jvm at the execution
+D. None of the above
+
+Answer: B
+
+Q>.
+public class Test{ 
+	public static void main(String args[]){ 
+		if(true); 
+	}
+} 
+A. Compile Time Error
+B. hello
+C. Some problem by jvm at the execution
+D. No Output
+
+Answer: D
+
+Q.
+public class Test{ 
+	public static void main(String args[]){ 
+		if(true) 
+		int x=10; 
+	}
+} 
+A. Compile Time Error
+B. hello
+C. Some problem by jvm at the execution
+D. No Output
+
+Answer: A
+
+42.
+public class Test{ 
+	public static void main(String args[]){ 
+		if(true) {
+			int x=10; 
+		}
+	}
+} 
+A. Compile Time Error
+B. hello
+C. Some problem by jvm at the execution
+D. No Output
+
+Answer: D
+
+Q.
+public class Test{ 
+	public static void main(String args[]){ 
+		if(true) 
+		System.out.println("hello");
+		System.out.println("hiee");
+	}
+} 
+How many statements are independent of if?
+A. 0-stmt
+B. 1-stmt
+C. 2-stmt
+D. 3-stmt
+
+Answer:B
+
+Q>
+public class Test {
+	public static void main(String[] args) {
+		int i = 5;
+		System.out.print(i+++"");//5, i = 6
+		System.out.print(i+"");// 6
+		System.out.print(++i+"");//i=7
+		System.out.print(++i+i+++"");//i=8+8 i = 9 
+	}
+}
+Predict the Output?
+A. 56716
+B. 66616
+C. 57817
+D. 67817 
+
+Answer: A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
